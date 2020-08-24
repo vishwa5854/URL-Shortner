@@ -19,7 +19,7 @@
                 redirect: 'follow'
             };
 
-            await fetch("http://localhost:3000/condense/", requestOptions)
+            await fetch("http://localhost:5000/condense/", requestOptions)
                 .then(response => response.text())
                 .then(result => document.getElementById("login").value = result)
                 .catch(error => console.log('error', error));
