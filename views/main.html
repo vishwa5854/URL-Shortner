@@ -21,10 +21,11 @@
                     method: 'POST',
                     headers: myHeaders,
                     body: raw,
+                    mode: 'no-cors',
                     redirect: 'follow'
                 };
 
-                await fetch("https://limitless-sands-68881.herokuapp.com/condense/", requestOptions)
+                await fetch("http://54.167.215.74:3000/condense/", requestOptions)
                     .then(response => response.text())
                     .then(result => document.getElementById("login").value = "https://limitless-sands-68881.herokuapp.com/" + result)
                     .catch(error => console.log('error', error));
