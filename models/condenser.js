@@ -24,16 +24,18 @@ const saveCondensedURL = (condensedURL, actualURL, cb) => {
             "condensedURL" : condensedURL
         }
     );
-    url.save((error) => {
-        if(error){
-            console.error("Error while saving the URL details into dB \n", error);
-            cb(error, null);
+    url.save(
+        (error) => {
+            if(error){
+                console.error("Error while saving the URL details into dB \n", error);
+                cb(error, null);
+            }
+            else {
+                console.log("Successfully saved a URL\n");
+                cb(false, condensedURL);
+            }
         }
-        else {
-            console.log("Successfully saved a URL\n");
-            cb(false, condensedURL);
-        }
-    });
+    );
 }
 
 const getActualURL = (condensedURL, cb) => {

@@ -17,15 +17,19 @@ router.post("/",
     }
 );
 
-router.get("/:id", (req, res) => {
-    condenser.getActualURL(req.params.id, (error, data) => {
-        if(error){
-            res.send(error);
-        }
-        else {
-            res.redirect(data);
-        }
-    })
-});
+router.get("/:id", 
+    (req, res) => {
+        condenser.getActualURL(req.params.id, 
+            (error, data) => {
+                if(error){
+                    res.send(error);
+                }
+                else {
+                    res.redirect(data);
+                }
+            }
+        )
+    }
+);
 
 module.exports = router;
