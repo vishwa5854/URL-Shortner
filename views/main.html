@@ -25,7 +25,7 @@
                     redirect: 'follow'
                 };
 
-                await fetch("http://54.167.215.74:3000/condense/", requestOptions)
+                await fetch("https://iwr.herokuapp.com/condense/", requestOptions)
                     .then(response => response.text())
                     .then(result => document.getElementById("login").value = "https://iwr.herokuapp.com/" + result)
                     .catch(error => console.log('error', error));
