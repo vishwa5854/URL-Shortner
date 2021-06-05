@@ -9,7 +9,8 @@
         async function generateShortURL() {
 
             let url = document.getElementById("login").value;
-            if(url.length > 0) {
+            let regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+            if(url.match(regex)) {
                 let myHeaders = new Headers();
                 myHeaders.append("Content-Type", "application/json");
 
