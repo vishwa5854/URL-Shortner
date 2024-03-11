@@ -1,0 +1,10 @@
+services:
+  us:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: us
+    image: us
+    restart: always
+    ports:
+      - "3334:3000"
