@@ -24,41 +24,23 @@ const saveCondensedURL = (condensedURL, actualURL, cb) => {
             "condensedURL" : condensedURL
         }
     );
-    url.save(
-        (error) => {
-            if(error){
-                console.error("Error while saving the URL details into dB \n", error);
-                cb(error, null);
-            }
-            else {
-                console.log("Successfully saved a URL\n");
-                cb(false, condensedURL);
-            }
-        }
-    );
+
+    url.save()
+        .then()
+        .catch();
 }
 
 const getActualURL = (condensedURL, cb) => {
-    URL.findOne({condensedURL : condensedURL}).lean().exec(
-        (error, data) => {
-            if(error){
-                console.error("Error while retrieving the URL from dB \n", error);
-                cb(error, null);
-            }
-            else if( data === null ) {
-                cb(false, "");
-            }
-            else {
-                cb(false, data['URL']);
-            }
-        }
-    );
+    URL.findOne({condensedURL : condensedURL})
+        .lean()
+        .exec()
+        .then(data => cb(false, data["URL"]))
+        .catch(err => cb(err, ""));
 }
 
 const createACondensedURL = () => {
     return nanoid(5);
 }
-
 
 module.exports = {
     saveCondensedURL : saveCondensedURL,

@@ -1,26 +1,15 @@
 const mongoose = require('mongoose');
 const configValues = require("../config/constants");
 
-let init = () => {
+let init = async () => {
     let url = configValues.dbURL;
-    mongoose.connect(
-        url,
-        { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, 'useFindAndModify' : false },
-        function (err) {
-            if (err) {
-                console.error("Error! " + err);
-            } else {
-                console.log("Connected to mongodb");
-            }
-        }
-    );
 
-    mongoose.connection.on("error", function (err) {
-        console.log("Connection error: " + err);
-    });
-    mongoose.connection.on("open", function () {
-        console.log("connected to mongo db");
-    });
+    try {
+        await mongoose.connect(url);
+        console.log("Connected to mongodb");
+    } catch (error) {
+        console.log("Connection error: " + error);
+    }
 }
 
 module.exports = init;

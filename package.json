@@ -6,17 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "mongoose": "^5.10.0",
-    "nanoid": "^3.1.12"
-  },
-  "devDependencies": {
-    "mongoose": "^5.10.0",
-    "nanoid": "^3.1.12"
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "http-errors": "latest",
+    "morgan": "latest",
+    "mongoose": "latest",
+    "nanoid": "latest"
   }
 }

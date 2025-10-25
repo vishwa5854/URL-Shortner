@@ -1,4 +1,4 @@
-FROM node:19
+FROM oven/bun:alpine
 
 RUN mkdir /src
 
@@ -6,6 +6,6 @@ ADD . /src
 
 WORKDIR /src
 
-RUN npm install
+RUN bun install
 
-CMD npm start
+CMD bun run ./bin/www
